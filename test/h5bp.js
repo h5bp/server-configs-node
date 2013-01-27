@@ -159,9 +159,10 @@ describe('h5bp', function() {
             });
 
             describe('one month', function() {
-                var medias = MEDIA.filter(function(e) { return 'ico' != e; });
-                medias.push('htc');
-                medias.forEach(function(f) {
+                var media = MEDIA.filter(function(e) { return 'ico' != e; });
+                media.push('htc');
+                media = media.concat(FONT);
+                media.forEach(function(f) {
                     it('should be set for .' + f, function(done) {
                         helper.request()
                             .get('/test.' + f)
@@ -460,9 +461,10 @@ describe('h5bp', function() {
             });
 
             describe('one month', function() {
-                var medias = MEDIA.filter(function(e) { return 'ico' != e; });
-                medias.push('htc');
-                medias.forEach(function(f) {
+                var media = MEDIA.filter(function(e) { return 'ico' != e; });
+                media.push('htc');
+                media = media.concat(FONT);
+                media.forEach(function(f) {
                     it('should be set for .' + f, function(done) {
                         helper.request()
                             .get('/test.' + f)
