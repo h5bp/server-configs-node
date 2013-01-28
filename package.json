@@ -1,32 +1,45 @@
 {
-    "name": "your_server",
-    "description": "short description of the project>",
-    "version": "0.1.0",
-    "author": "firstname lastname <your_email@fqdn.tld>",
+    "name": "h5bp",
+    "description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
+    "version": "0.0.4",
+    "author": "Nicolas Gryman <ngryman@gmail.com>",
     "contributors": [
         {
-            "name": "firstname lastname",
-            "email": "contributor1@fqdn.tld"
+            "name": "Nicolas Gryman",
+            "email": "ngryman@gmail.com"
         },
         {
-            "name": "firstname lastname",
-            "email": "contributor2@fqdn.tld"
+            "name": "Nick Baugh",
+            "email": "niftylettuce@gmail.com"
+        },
+        {
+            "name": "Sean Caetano Martin",
+            "email": "seancaetanomartin@gmail.com"
+        },
+        {
+            "name": "Benjamin Tan",
+            "email": "demoneaux@gmail.com"
         }
     ],
     "scripts": {
-        "start": "node ./bin/your_server",
         "test": "mocha --recursive --reporter dot"
     },
-    "keywords": ["what", "ever", "you", "like"],
-    "homepage": "https://github.com/your_login/your_repo",
+    "keywords": [
+        "h5bp",
+        "html5",
+        "boilerplate",
+        "framework"
+    ],
+    "homepage": "https://github.com/h5bp/node-server-config",
     "repository": {
         "type": "git",
-        "url": "https://github.com/your_login/your_repo.git"
+        "url": "https://github.com/h5bp/node-server-config.git"
     },
-    "engine": {
-        "node": ">= 0.8.0"
+    "engines": {
+        "node": "0.8.x",
+        "npm": "1.1.x"
     },
-    "main": "node.js",
+    "main": "lib/h5bp",
     "dependencies" : {
         "connect": "2.x.x"
     },
