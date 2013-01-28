@@ -327,6 +327,15 @@ describe('h5bp', function() {
                     done();
                 });
         });
+
+        it('should serve compressed files', function(done) {
+            helper.request()
+                .get('/test.html')
+                .set('Accept-Encoding', 'gzip,deflate,sdch')
+                .expect('Vary', 'Accept-Encoding')
+                .expect('Content-Encoding', 'gzip')
+                .expect(200, done);
+        });
     });
 
     describe('standalone', function() {
@@ -629,6 +638,15 @@ describe('h5bp', function() {
                     res.headers.should.not.have.property('X-Powered-By');
                     done();
                 });
+        });
+
+        it('should serve compressed files', function(done) {
+            helper.request()
+                .get('/test.html')
+                .set('Accept-Encoding', 'gzip,deflate,sdch')
+                .expect('Vary', 'Accept-Encoding')
+                .expect('Content-Encoding', 'gzip')
+                .expect(200, done);
         });
     });
 
