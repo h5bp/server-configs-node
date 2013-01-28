@@ -41,7 +41,7 @@
     },
     "main": "lib/h5bp",
     "dependencies" : {
-        "connect": "2.x.x"
+        "express": "3.x.x"
     },
     "devDependencies": {
         "mocha": "1.3.2",
