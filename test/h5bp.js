@@ -20,7 +20,7 @@ const MISC = 'txt crx oex xpi safariextz webapp vcf swf vtt'.split(' ');
 const FEED = RSS;
 const MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
 const DATA = 'appcache manifest html htm xml rdf json';
-const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS);
+const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
 
 describe('h5bp', function() {
     describe('with express/connect', function() {
@@ -31,12 +31,11 @@ describe('h5bp', function() {
         });
 
         describe ('proper MIME type for all files', function() {
-            var ext = Object.keys(h5bp.mimeTypes);
-            ext.forEach(function(e) {
+            ALL.forEach(function(e) {
                 it('should be set for .' + e, function(done) {
                     helper.request()
                         .get('/test.' + e)
-                        .expect('Content-Type', h5bp.mimeTypes[e])
+                        .expect('Content-Type', express.mime.lookup(e))
                         .expect(200, done);
                 });
             });
@@ -333,12 +332,11 @@ describe('h5bp', function() {
         });
 
         describe ('proper MIME type for all files', function() {
-            var ext = Object.keys(h5bp.mimeTypes);
-            ext.forEach(function(e) {
+            ALL.forEach(function(e) {
                 it('should be set for .' + e, function(done) {
                     helper.request()
                         .get('/test.' + e)
-                        .expect('Content-Type', h5bp.mimeTypes[e])
+                        .expect('Content-Type', express.mime.lookup(e))
                         .expect(200, done);
                 });
             });
