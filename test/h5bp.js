@@ -7,6 +7,7 @@ require('chai').should();
 var request = require('supertest');
 var url = require('url');
 var fs = require('fs');
+var path = require('path');
 
 const HTML = 'html htm'.split(' ');
 const IMAGE = 'bmp gif jpeg jpg jpe png svg svgz tiff tif ico'.split(' ');
@@ -22,6 +23,8 @@ const MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
 const DATA = 'appcache manifest html htm xml rdf json';
 const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
 
+express.mime.load(path.join(__dirname, '..', 'lib', 'h5bp.types'));
+
 describe('h5bp', function() {
     describe('with express/connect', function() {
         before(function() {
@@ -30,7 +33,7 @@ describe('h5bp', function() {
             helper.start();
         });
 
-        describe ('proper MIME type for all files', function() {
+        describe('proper MIME type for all files', function() {
             ALL.forEach(function(e) {
                 it('should be set for .' + e, function(done) {
                     helper.request()
@@ -158,7 +161,9 @@ describe('h5bp', function() {
             });
 
             describe('one month', function() {
-                var media = MEDIA.filter(function(e) { return 'ico' != e; });
+                var media = MEDIA.filter(function(e) {
+                    return 'ico' != e;
+                });
                 media.push('htc');
                 media = media.concat(FONT);
                 media.forEach(function(f) {
@@ -331,7 +336,7 @@ describe('h5bp', function() {
             helper.start();
         });
 
-        describe ('proper MIME type for all files', function() {
+        describe('proper MIME type for all files', function() {
             ALL.forEach(function(e) {
                 it('should be set for .' + e, function(done) {
                     helper.request()
@@ -459,7 +464,9 @@ describe('h5bp', function() {
             });
 
             describe('one month', function() {
-                var media = MEDIA.filter(function(e) { return 'ico' != e; });
+                var media = MEDIA.filter(function(e) {
+                    return 'ico' != e;
+                });
                 media.push('htc');
                 media = media.concat(FONT);
                 media.forEach(function(f) {
@@ -638,7 +645,9 @@ describe('h5bp', function() {
 
         it('should create an express server', function(done) {
             var app = h5bp.createServer({ server: 'express' });
-            app.get('/', function(req, res) { res.end('ok'); });
+            app.get('/', function(req, res) {
+                res.end('ok');
+            });
             server = app.listen(8080);
             request(server)
                 .get('/')
@@ -647,7 +656,9 @@ describe('h5bp', function() {
 
         it('should create a connect server', function(done) {
             var app = h5bp.createServer({ server: 'connect' });
-            app.use(function(req, res) { res.end('ok'); });
+            app.use(function(req, res) {
+                res.end('ok');
+            });
             server = app.listen(8080);
             request(server)
                 .get('/')
@@ -655,7 +666,9 @@ describe('h5bp', function() {
         });
 
         it('should create a basic http server', function(done) {
-            var app = h5bp.createServer({ server: 'http' }, function(req, res) { res.end('ok'); });
+            var app = h5bp.createServer({ server: 'http' }, function(req, res) {
+                res.end('ok');
+            });
             server = app.listen(8080);
             request(server)
                 .get('/')
@@ -670,38 +683,8 @@ describe('h5bp', function() {
 var helper = {
     create: function(options) {
         options = options || {};
-        if ('http' == options.server) {
-            var middleware = h5bp(options);
-            this.app = require('http').createServer(function(req, res) {
-                try {
-                    middleware(req, res);
-                }
-                catch(error) {
-                    res.writeHead(error.status);
-                    res.end(error.toString());
-                    return;
-                }
-
-                fs.readFile(__dirname + '/fixtures' + url.parse(req.url).pathname, function(err, data) {
-                    if(err) {
-                        res.writeHead(404);
-                        res.end(err.toString());
-                        return;
-                    }
-
-                    res.writeHead(200, {
-                        'content-length': data.length
-                    });
-                    res.end(data);
-                });
-            });
-        }
-        else {
-            this.app = express();
-            this.app.use(h5bp(options));
-            this.app.use(express.static(__dirname + '/fixtures'));
-            this.app.use(express.errorHandler());
-        }
+        options.root = path.join(__dirname, 'fixtures');
+        this.app = h5bp.createServer(options);
         return this;
     },
 
