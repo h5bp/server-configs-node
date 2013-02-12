@@ -1,20 +1,20 @@
 {
     "name": "h5bp",
     "description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
-    "version": "0.0.4",
-    "author": "Nicolas Gryman <ngryman@gmail.com>",
+    "version": "0.0.5",
+    "author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
     "contributors": [
         {
-            "name": "Nicolas Gryman",
-            "email": "ngryman@gmail.com"
+            "name": "Sean Caetano Martin",
+            "email": "seancaetanomartin@gmail.com"
         },
         {
             "name": "Nick Baugh",
             "email": "niftylettuce@gmail.com"
         },
         {
-            "name": "Sean Caetano Martin",
-            "email": "seancaetanomartin@gmail.com"
+            "name": "Nicolas Gryman",
+            "email": "ngryman@gmail.com"
         },
         {
             "name": "Benjamin Tan",
