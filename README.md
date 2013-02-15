@@ -4,8 +4,50 @@ HTML5 boilerplate (H5BP) inspired server config for node.js.
 
 [![Build Status](https://secure.travis-ci.org/h5bp/node-server-config.png)](http://travis-ci.org/h5bp/node-server-config)
 
-How to run the tests:
+## Installation
 
-`npm install` if you haven't yet.
+```bash
+npm install h5bp
+```
 
-`node_modules/mocha/bin/mocha --recursive --reporter dot` from the root of the project.
+## Quick Start
+
+To create a simple server:
+
+```javascript
+var h5bp = require('h5bp');
+
+var app = h5bp.createServer({ root: __dirname + '/public' });
+app.listen(3000);
+```
+
+To use it as a connect / express middleware:
+
+```javascript
+var express = require('express');
+
+var app = express();
+// ...
+app.use(h5bp({ root: __dirname + '/public' }));
+app.use(express.compress());
+app.use(express.static(__dirname + '/public'));
+// ...
+app.listen(3000);
+```
+
+*Note: When using `h5bp` with other middlewares, use `h5bp` in the first position, before any `static` middleware.*
+
+## Options
+
+*(Coming soon)*
+
+## Contribute
+
+*(Coming soon)*
+
+### Run the tests
+
+From the root of the project:
+```bash
+npm test
+```
