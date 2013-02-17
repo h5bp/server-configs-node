@@ -3,6 +3,9 @@
 HTML5 boilerplate (H5BP) inspired server config for node.js.
 
 [![Build Status](https://secure.travis-ci.org/h5bp/node-server-config.png)](http://travis-ci.org/h5bp/node-server-config)
+<a href="https://gemnasium.com/ngryman/node-server-config">
+  <img src="https://gemnasium.com/ngryman/node-server-config.png" width="110" height="13" alt="Dependency Status">
+</a>
 
 ## Installation
 
