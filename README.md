@@ -27,7 +27,8 @@ app.listen(3000);
 To use it as a connect / express middleware:
 
 ```javascript
-var express = require('express');
+var express = require('express'),
+    h5bp = require('h5bp');
 
 var app = express();
 // ...
