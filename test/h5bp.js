@@ -350,6 +350,12 @@ describe('h5bp', function() {
                 .expect('Content-Encoding', 'gzip')
                 .expect(200, done);
         });
+
+        it('should tell that a file does not exist', function(done) {
+            helper.request()
+                .get('/42.html')
+                .expect(404, done);
+        });
     });
 
     describe('standalone', function() {
@@ -676,6 +682,12 @@ describe('h5bp', function() {
                 .expect('Content-Encoding', 'gzip')
                 .expect(200, done);
         });
+
+        it('should tell that a file does not exist', function(done) {
+            helper.request()
+                .get('/42.html')
+                .expect(404, done);
+        });
     });
 
     describe('#createServer', function() {
@@ -730,15 +742,15 @@ var helper = {
     create: function(options) {
         options = options || {};
         options.root = path.join(__dirname, 'fixtures');
-        this.app = h5bp.createServer(options);
+        this.app = h5bp.createServer(options, function(req, res, next) {
+            if ('/' == req.url) {
+                res.set('content-type', 'x-text/woot');
+                res.send('woot!');
+                return;
+            }
 
-		// handle '/'
-		this.app.use(function(req, res, done) {
-			if ('/' == req.url) {
-				res.set('content-type', 'x-text/woot');
-				res.send('woot!');
-			}
-		});
+            next();
+        });
 
         return this;
     },
