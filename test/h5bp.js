@@ -1,5 +1,5 @@
 // prevents express for dumping error in test output
-process.env.NODE_ENV = 'test';
+//process.env.NODE_ENV = 'test';
 
 var h5bp = require('../lib/h5bp');
 var express = require('express');
@@ -23,7 +23,7 @@ const MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
 const DATA = 'appcache manifest html htm xml rdf json';
 const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
 
-express.mime.load(path.join(__dirname, '..', 'lib', 'h5bp.types'));
+express.mime.load(path.join(__dirname, '..', 'lib', 'layers', 'h5bp.types'));
 
 describe('h5bp', function() {
     describe('with express/connect', function() {
