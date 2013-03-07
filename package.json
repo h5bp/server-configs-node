@@ -22,7 +22,7 @@
 		}
 	],
 	"scripts": {
-		"test": "mocha --recursive --reporter dot"
+		"test": "mocha test --reporter dot"
 	},
 	"keywords": [
 		"h5bp",
@@ -42,7 +42,8 @@
 	"main": "lib/h5bp",
 	"dependencies": {
 		"express": "3.x.x",
-		"async": "0.2.x"
+		"async": "0.2.x",
+		"webmake": "~0.3.14"
 	},
 	"devDependencies": {
 		"mocha": "1.8.x",
