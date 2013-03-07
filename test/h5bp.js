@@ -1,5 +1,5 @@
 // prevents express for dumping error in test output
-process.env.NODE_ENV = 'test';
+//process.env.NODE_ENV = 'test';
 
 var h5bp = require('../lib/h5bp');
 var express = require('express');
