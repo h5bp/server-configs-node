@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha test --reporter dot"
+    "test": "mocha test --reporter dot --globals requirejsVars"
   },
   "keywords": [
     "h5bp",
