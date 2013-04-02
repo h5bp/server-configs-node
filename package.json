@@ -1,54 +1,55 @@
 {
-	"name": "h5bp",
-	"description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
-	"version": "0.0.5",
-	"author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
-	"contributors": [
-		{
-			"name": "Sean Caetano Martin",
-			"email": "seancaetanomartin@gmail.com"
-		},
-		{
-			"name": "Nick Baugh",
-			"email": "niftylettuce@gmail.com"
-		},
-		{
-			"name": "Nicolas Gryman",
-			"email": "ngryman@gmail.com"
-		},
-		{
-			"name": "Benjamin Tan",
-			"email": "demoneaux@gmail.com"
-		}
-	],
-	"scripts": {
-		"test": "mocha test --reporter dot"
-	},
-	"keywords": [
-		"h5bp",
-		"html5",
-		"boilerplate",
-		"framework"
-	],
-	"homepage": "https://github.com/h5bp/node-server-config",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/h5bp/node-server-config.git"
-	},
-	"engines": {
-		"node": "0.8.x",
-		"npm": "1.1.x"
-	},
-	"main": "lib/h5bp",
-	"dependencies": {
-		"express": "3.x.x",
-		"async": "0.2.x",
-		"webmake": "~0.3.14"
-	},
-	"devDependencies": {
-		"mocha": "1.8.x",
-		"chai": "1.5.x",
-		"supertest": "0.5.x",
-		"connect": "2.x.x"
-	}
+  "name": "h5bp",
+  "description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
+  "version": "0.0.5",
+  "author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
+  "contributors": [
+    {
+      "name": "Sean Caetano Martin",
+      "email": "seancaetanomartin@gmail.com"
+    },
+    {
+      "name": "Nick Baugh",
+      "email": "niftylettuce@gmail.com"
+    },
+    {
+      "name": "Nicolas Gryman",
+      "email": "ngryman@gmail.com"
+    },
+    {
+      "name": "Benjamin Tan",
+      "email": "demoneaux@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "mocha test --reporter dot"
+  },
+  "keywords": [
+    "h5bp",
+    "html5",
+    "boilerplate",
+    "framework"
+  ],
+  "homepage": "https://github.com/h5bp/node-server-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h5bp/node-server-config.git"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "main": "lib/h5bp",
+  "dependencies": {
+    "express": "3.x.x",
+    "async": "0.2.x",
+    "webmake": "~0.3.14",
+    "requirejs": "~2.1.5"
+  },
+  "devDependencies": {
+    "mocha": "1.8.x",
+    "chai": "1.5.x",
+    "supertest": "0.5.x",
+    "connect": "2.x.x"
+  }
 }
