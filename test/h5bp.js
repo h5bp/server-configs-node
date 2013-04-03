@@ -1,4 +1,4 @@
-// prevent express for dumping error in test output
+// prevents express for dumping error in test output
 process.env.NODE_ENV = 'test';
 
 var h5bp = require('../lib/h5bp');
@@ -42,6 +42,13 @@ describe('h5bp', function() {
                         .expect(200, done);
                 });
             });
+
+			it('should leave content-type empty for files without extensions', function(done) {
+				helper.request()
+					.get('/')
+					.expect('Content-Type', 'x-text/woot')
+					.expect(200, done);
+			});
         });
 
         describe('the latest IE version', function() {
@@ -136,6 +143,13 @@ describe('h5bp', function() {
                             .expect(200, done);
                     });
                 });
+
+				it('should be set for unknown content-type', function(done) {
+					helper.request()
+						.get('/')
+						.expect('cache-control', /public,max-age=0/)
+						.expect(200, done);
+				});
             });
 
             describe('one hour', function() {
@@ -336,6 +350,12 @@ describe('h5bp', function() {
                 .expect('Content-Encoding', 'gzip')
                 .expect(200, done);
         });
+
+        it('should tell that a file does not exist', function(done) {
+            helper.request()
+                .get('/42.html')
+                .expect(404, done);
+        });
     });
 
     describe('standalone', function() {
@@ -354,6 +374,13 @@ describe('h5bp', function() {
                         .expect(200, done);
                 });
             });
+
+			it('should leave content-type empty for files without extensions', function(done) {
+				helper.request()
+					.get('/')
+					.expect('Content-Type', 'x-text/woot')
+					.expect(200, done);
+			});
         });
 
         describe('the latest IE version', function() {
@@ -448,6 +475,13 @@ describe('h5bp', function() {
                             .expect(200, done);
                     });
                 });
+
+				it('should be set for unknown content-type', function(done) {
+					helper.request()
+						.get('/')
+						.expect('cache-control', /public,max-age=0/)
+						.expect(200, done);
+				});
             });
 
             describe('one hour', function() {
@@ -648,6 +682,12 @@ describe('h5bp', function() {
                 .expect('Content-Encoding', 'gzip')
                 .expect(200, done);
         });
+
+        it('should tell that a file does not exist', function(done) {
+            helper.request()
+                .get('/42.html')
+                .expect(404, done);
+        });
     });
 
     describe('#createServer', function() {
@@ -702,7 +742,16 @@ var helper = {
     create: function(options) {
         options = options || {};
         options.root = path.join(__dirname, 'fixtures');
-        this.app = h5bp.createServer(options);
+        this.app = h5bp.createServer(options, function(req, res, next) {
+            if ('/' == req.url) {
+                res.set('content-type', 'x-text/woot');
+                res.send('woot!');
+                return;
+            }
+
+            next();
+        });
+
         return this;
     },
 
