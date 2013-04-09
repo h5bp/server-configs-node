@@ -361,7 +361,7 @@ describe('h5bp', function() {
 			describe('using CommonJS', function() {
 				it('should concatenate a file directly a the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['commonjs.js'], method: 'commonjs' } })
+						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/commonjs.js')
@@ -375,7 +375,7 @@ describe('h5bp', function() {
 
 				it('should cache the previous file', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['commonjs.js'], method: 'commonjs' } })
+						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/commonjs.js')
@@ -389,7 +389,7 @@ describe('h5bp', function() {
 
 				it('should concatenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['deep/commonjs.js'], method: 'commonjs' } })
+						.create({ scripts: { files: ['deep/commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/deep/commonjs.js')
@@ -405,7 +405,7 @@ describe('h5bp', function() {
 			describe('using AMD', function() {
 				it('should concatenate a file directly a the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -419,7 +419,7 @@ describe('h5bp', function() {
 
 				it('should cache the previous file', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -433,7 +433,7 @@ describe('h5bp', function() {
 
 				it('should concatenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['deep/amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['deep/amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/deep/amd.js')
@@ -448,7 +448,7 @@ describe('h5bp', function() {
 
 			it('should default to commonjs', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['commonjs.js'] } })
+					.create({ scripts: { files: ['commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.js')
@@ -456,17 +456,17 @@ describe('h5bp', function() {
 					.expect(200, done);
 			});
 
-			it('should throw an error if method is not valid', function() {
+			it('should throw an error if processor is not valid', function() {
 				(function() {
 					helper.stop()
-						.create({ scripts: { method: 'madafaka' } })
-				}).should.throw(/Script concatenation method can be either 'commonjs' or 'amd'/);
+						.create({ scripts: { processor: 'madafaka' } })
+				}).should.throw(/Script concatenation processor can be either 'commonjs' or 'amd'/);
 				helper.stop();
 			});
 
 			it('should accept a string when there is only one script', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: 'commonjs.js', method: 'commonjs' } })
+					.create({ scripts: { files: 'commonjs.js', processor: 'commonjs' } })
 					.start()
 					.request()
 					.get('/deep/commonjs.js')
@@ -477,14 +477,14 @@ describe('h5bp', function() {
 			it('should throw an error if there is no scripts concatenate', function() {
 				(function() {
 					helper.stop()
-						.create({ scripts: { method: 'commonjs' } })
+						.create({ scripts: { processor: 'commonjs' } })
 				}).should.throw(/There is no script to concatenate/);
 				helper.stop();
 			});
 
 			it('should work with cache busting', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['commonjs.js'] } })
+					.create({ scripts: { files: ['commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.123456.js')
@@ -494,7 +494,7 @@ describe('h5bp', function() {
 
 			it('should cache miss new cache busted url', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['commonjs.js'] } })
+					.create({ scripts: { files: ['commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.1337.js')
@@ -508,7 +508,7 @@ describe('h5bp', function() {
 
 			it('should ignore leading slash', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['/commonjs.js'] } })
+					.create({ scripts: { files: ['/commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.js')
@@ -857,7 +857,7 @@ describe('h5bp', function() {
 			describe('using CommonJS', function() {
 				it('should concatenate a file directly a the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['commonjs.js'], method: 'commonjs' } })
+						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/commonjs.js')
@@ -869,9 +869,9 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should concatenate a file more deep in the hierarchy', function(done) {
+				it('should filesenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['deep/commonjs.js'], method: 'commonjs' } })
+						.create({ scripts: { files: ['deep/commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/deep/commonjs.js')
@@ -887,7 +887,7 @@ describe('h5bp', function() {
 			describe('using AMD', function() {
 				it('should concatenate a file directly a the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -901,7 +901,7 @@ describe('h5bp', function() {
 
 				it('should cache the previous file', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -915,7 +915,7 @@ describe('h5bp', function() {
 
 				it('should concatenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { concat: ['deep/amd.js'], method: 'amd' } })
+						.create({ scripts: { files: ['deep/amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/deep/amd.js')
@@ -930,7 +930,7 @@ describe('h5bp', function() {
 
 			it('should default to commonjs', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['commonjs.js'] } })
+					.create({ scripts: { files: ['commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.js')
@@ -945,14 +945,14 @@ describe('h5bp', function() {
 			it('should throw an error if method is not valid', function() {
 				(function() {
 					helper.stop()
-						.create({ scripts: { method: 'madafaka' } })
-				}).should.throw(/Script concatenation method can be either 'commonjs' or 'amd'/);
+						.create({ scripts: { processor: 'madafaka' } })
+				}).should.throw(/Script concatenation processor can be either 'commonjs' or 'amd'/);
 				helper.stop();
 			});
 
 			it('should accept a string when there is only one script', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: 'commonjs.js', method: 'commonjs' } })
+					.create({ scripts: { files: 'commonjs.js', processor: 'commonjs' } })
 					.start()
 					.request()
 					.get('/deep/commonjs.js')
@@ -963,14 +963,14 @@ describe('h5bp', function() {
 			it('should throw an error if there is no scripts concatenate', function() {
 				(function() {
 					helper.stop()
-						.create({ scripts: { method: 'commonjs' } })
+						.create({ scripts: { processor: 'commonjs' } })
 				}).should.throw(/There is no script to concatenate/);
 				helper.stop();
 			});
 
 			it('should work with cache busting', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['commonjs.js'] } })
+					.create({ scripts: { files: ['commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.123456.js')
@@ -980,7 +980,7 @@ describe('h5bp', function() {
 
 			it('should ignore leading slash', function(done) {
 				helper.stop()
-					.create({ scripts: { concat: ['/commonjs.js'] } })
+					.create({ scripts: { files: ['/commonjs.js'] } })
 					.start()
 					.request()
 					.get('/commonjs.js')
