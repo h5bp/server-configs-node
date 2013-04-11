@@ -1,5 +1,4 @@
-
-# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg)](https://npmjs.org/package/h5bp)</sup>
+# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg#0.0.6)](https://npmjs.org/package/h5bp)</sup>
 
 HTML5 boilerplate (H5BP) inspired server config for node.js.
 
