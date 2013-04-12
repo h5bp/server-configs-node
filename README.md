@@ -1,9 +1,29 @@
 # [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg#0.0.6)](https://npmjs.org/package/h5bp)</sup>
 
-HTML5 boilerplate (H5BP) inspired server config for node.js.
+**HTML5 boilerplate** (H5BP) server config for node.js.
 
 [![Build Status](https://secure.travis-ci.org/h5bp/node-server-config.png)](http://travis-ci.org/h5bp/node-server-config)
 [![Build Status](https://gemnasium.com/ngryman/node-server-config.png)](https://gemnasium.com/ngryman/node-server-config)
+
+`h5bp` for node.js follows the guidelines of the [Apache] version:
+ - secures backup and hidden files.
+ - optionally redirects `www.yoursite.tld` to `yoursite.tld` or `yoursite.tld` to `www.yoursite.tld`.
+ - offers a simple cache busting mechanism.
+ - normalize content types.
+ - optionally enables CORS.
+ - sets correct cache expires depending of the type of resource.
+ - and some others...
+
+It also focuses on offering additional features such as on-the-fly script concatenation using **CommonJS** or **AMD**.
+
+[Apache]: https://github.com/h5bp/server-configs/tree/master/apache
+
+### Next release focus (v0.0.7)
+
+ - `grunt` style scripts and stylesheets concatenation.
+ - on-the-fly scripts minification.
+ - on-the-fly `LESS` and `SASS` compilation.
+ - development mode: always refresh on-the-fly generated resources.
 
 ## Installation
 
@@ -13,7 +33,7 @@ npm install h5bp
 
 ## Quick Start
 
-To create a simple server:
+### Create a simple http server
 
 ```javascript
 var h5bp = require('h5bp');
@@ -22,26 +42,117 @@ var app = h5bp.createServer({ root: __dirname + '/public' });
 app.listen(3000);
 ```
 
-To use it as a connect / express middleware:
+`app` is an instance of an `express` application. You can add additional middlewares or routes if you like.
+
+### Use it as a connect / express middleware
 
 ```javascript
 var express = require('express'),
     h5bp = require('h5bp');
 
 var app = express();
-// ...
 app.use(h5bp({ root: __dirname + '/public' }));
+
+// in order to serve files, you should add the two following middlewares
 app.use(express.compress());
 app.use(express.static(__dirname + '/public'));
-// ...
 app.listen(3000);
 ```
 
-*Note: When using `h5bp` with other middlewares, use `h5bp` in the first position, before any `static` middleware.*
+### Concatenate scripts on-the-fly
+
+If you want to split your application source files but only serve one file, you can use the on-the-fly concatenation.
+If you are familiar with node.js, you can use the **CommonJS** style. You can also use the **AMD** style.
+
+```javascript
+app.use(h5bp({
+    root: __dirname + '/public',
+    scripts: {
+        files: ['app.js'],
+        processor: 'commonjs'   // can also be "amd"
+    }
+}));
+```
+
+At the first request hit to `/app.js`, the server will compile, cache and serve the file. Any subsequent request will
+serve the cached file without any performance impact.
+
+So, this feature is meant to be used with the [cache busting mechanism] in order to ensure the client always has the
+latest resource version. If you restart your server, the cache will be flushed.
+
+Note that the next release will provide a *development mode* where the server will simply disable its cache and
+always serve the latest version of the file.
+
+[cache busting mechanism]: https://github.com/h5bp/server-configs/tree/master/apache#cache-busting
 
 ## Options
 
-*(Coming soon)*
+There are several options you can pass to the middleware.
+
+`app.use(h5bp(options));`
+
+### root
+
+Tells the filesystem path to the root directory of static resources. This options is mandatory if you serve static files.
+
+### www
+
+Forces **www** if `true`, forces **non-www** if `false`, does nothing if not defined. By default, this is disabled.
+
+### cors
+
+Enables **CORS** for everything. By default this is disabled.
+
+### scripts
+
+Tells which scripts to concatenate.
+
+This is an object with the following properties:
+
+#### files
+
+This is an array of files to concatenate. Their path is relative to the `root` option. Their URL will be absolute.
+
+For example, if you set **files** to `['scripts/app.js']` and **root** to `/home/h5bp/app/`:
+ - The path will be: `/home/h5bp/app/scripts/app.js`.
+ - The served URL will be: `yoursite.tld/scripts/app.js`.
+
+#### processor
+
+Tells which processor to use for scripts concatenation.
+
+For now, it can be one of the following values:
+ - `commonjs`: will concatenate files using the **CommonJS** method (`require/exports`).
+ - `amd`: will concatenate files using the **AMD** method (`require/define`).
+
+## Additional options
+
+The `h5bp.createServer` function takes the same options, plus additional ones.
+
+The `callback` is optional. It is a custom middleware that you can register directly if you want to.
+
+`h5bp.createServer(options, [callback]);`
+
+### server
+
+Tells which type of server you want to use.
+
+It can be one of the following values:
+ - `express`: uses **express**, this is the default value.
+ - `connect`: uses **connect**.
+
+### logger
+
+Tells if you want to log server requests or not. This can also be an object containing [logger options].
+
+[logger options]: http://www.senchalabs.org/connect/middleware-logger.html
+
+### compress
+
+Tells if you want to serve `gzipped` content or not. By default this is `true`.
+
+If you are using `h5bp` as a middleware, we strongly encourage you to use the `compress` middleware provided by
+**express** / **connect**.
 
 ## Contribute
 
