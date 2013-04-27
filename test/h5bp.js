@@ -29,9 +29,9 @@ express.mime.load(path.join(__dirname, '..', 'lib', 'layers', 'h5bp.types'));
 describe('h5bp', function() {
 	describe('with express/connect', function() {
 		before(function() {
-			helper.stop();
-			helper.create();
-			helper.start();
+			helper.stop()
+				.create()
+				.start();
 		});
 
 		describe('proper MIME type for all files', function() {
@@ -693,9 +693,9 @@ describe('h5bp', function() {
 
 	describe('standalone', function() {
 		before(function() {
-			helper.stop();
-			helper.create({ server: 'http' });
-			helper.start();
+			helper.stop()
+				.create({ server: 'http' })
+				.start();
 		});
 
 		describe('proper MIME type for all files', function() {
@@ -1026,7 +1026,7 @@ describe('h5bp', function() {
 			describe('using CommonJS', function() {
 				it('should concatenate a file directly at the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
+						.create({ server: 'http', scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/commonjs.js')
@@ -1040,7 +1040,7 @@ describe('h5bp', function() {
 
 				it('should filesenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { files: ['deep/commonjs.js'], processor: 'commonjs' } })
+						.create({ server: 'http', scripts: { files: ['deep/commonjs.js'], processor: 'commonjs' } })
 						.start()
 						.request()
 						.get('/deep/commonjs.js')
@@ -1051,12 +1051,28 @@ describe('h5bp', function() {
 							done();
 						});
 				});
+
+				it('should serve an always fresh version of the file', function(done) {
+					process.env.NODE_ENV = 'development';
+					helper.stop()
+						.create({ server: 'http', scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
+						.start()
+						.request()
+						.get('/commonjs.js')
+						.expect(200)
+						.end(function(err, res) {
+							// supertest seems to bug, doing check here...
+							res.headers['x-cache'].should.equal('MISS');
+							process.env.NODE_ENV = 'test';
+							done();
+						});
+				});
 			});
 
 			describe('using AMD', function() {
 				it('should concatenate a file directly at the root level', function(done) {
 					helper.stop()
-						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
+						.create({ server: 'http', scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -1070,7 +1086,7 @@ describe('h5bp', function() {
 
 				it('should cache the previous file', function(done) {
 					helper.stop()
-						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
+						.create({ server: 'http', scripts: { files: ['amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/amd.js')
@@ -1084,7 +1100,7 @@ describe('h5bp', function() {
 
 				it('should concatenate a file more deep in the hierarchy', function(done) {
 					helper.stop()
-						.create({ scripts: { files: ['deep/amd.js'], processor: 'amd' } })
+						.create({ server: 'http', scripts: { files: ['deep/amd.js'], processor: 'amd' } })
 						.start()
 						.request()
 						.get('/deep/amd.js')
@@ -1092,6 +1108,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^\n\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
+							done();
+						});
+				});
+
+				it('should serve an always fresh version of the file', function(done) {
+					process.env.NODE_ENV = 'development';
+					helper.stop()
+						.create({ server: 'http', scripts: { files: ['amd.js'], processor: 'amd' } })
+						.start()
+						.request()
+						.get('/amd.js')
+						.expect(200)
+						.end(function(err, res) {
+							// supertest seems to bug, doing check here...
+							res.headers['x-cache'].should.equal('MISS');
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
