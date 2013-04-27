@@ -1,4 +1,3 @@
-/*jslint node:true nomen:true white:true eqeq:true */
 /*global process:true, describe: true, before: true, it: true */
 
 // prevents express for dumping error in test output
@@ -10,19 +9,19 @@ require('chai').should();
 var request = require('supertest');
 var path = require('path');
 
-const HTML = 'html htm'.split(' ');
-const IMAGE = 'bmp gif jpeg jpg jpe png svg svgz tiff tif ico'.split(' ');
-const ICON = 'ico'.split(' ');
-const VIDEO = 'ogv mp4 m4v f4v f4p webm flv'.split(' ');
-const AUDIO = 'oga ogg m4a f4a f4b'.split(' ');
-const FONT = 'ttf ttc otf eot woff'.split(' ');
-const RSS = 'rss atom'.split(' ');
-const MISC = 'txt crx oex xpi safariextz webapp vcf swf vtt'.split(' ');
+var HTML = 'html htm'.split(' ');
+var IMAGE = 'bmp gif jpeg jpg jpe png svg svgz tiff tif ico'.split(' ');
+var ICON = 'ico'.split(' ');
+var VIDEO = 'ogv mp4 m4v f4v f4p webm flv'.split(' ');
+var AUDIO = 'oga ogg m4a f4a f4b'.split(' ');
+var FONT = 'ttf ttc otf eot woff'.split(' ');
+var RSS = 'rss atom'.split(' ');
+var MISC = 'txt crx oex xpi safariextz webapp vcf swf vtt'.split(' ');
 
-const FEED = RSS;
-const MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
-const DATA = 'appcache manifest html htm xml rdf json';
-const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
+var FEED = RSS;
+var MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
+var DATA = 'appcache manifest html htm xml rdf json';
+var ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
 
 describe('h5bp', function() {
 	describe('with express/connect', function() {

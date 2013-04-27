@@ -1,0 +1,21 @@
+{
+	"curly": false,
+	"eqeqeq": false,
+	"immed": true,
+	"latedef": true,
+	"newcap": false,
+	"noarg": true,
+	"sub": true,
+	"undef": true,
+	"boss": true,
+	"eqnull": true,
+	"browser": false,
+	"expr": true,
+	"node": true,
+	"globals": {
+		"process": true,
+		"describe": true,
+		"before": true,
+		"it": true
+	}
+}
