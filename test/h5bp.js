@@ -614,6 +614,66 @@ describe('h5bp', function() {
 				});
 			});
 
+			describe('using LESS', function() {
+				it('should compile a file directly at the root level', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['less.css'], processor: 'less' } })
+						.start()
+						.request()
+						.get('/less.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/background: #fe57a1/);
+							done();
+						});
+				});
+
+				it('should cache the previous file', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['less.css'], processor: 'less' } })
+						.start()
+						.request()
+						.get('/less.css')
+						.expect(200)
+						.end(function(err, res) {
+							// supertest seems to bug, doing check here...
+							res.headers['x-cache'].should.equal('HIT');
+							done();
+						});
+				});
+
+				it('should concatenate a file more deep in the hierarchy', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['deep/less.css'], processor: 'less' } })
+						.start()
+						.request()
+						.get('/deep/less.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/background: #133742/);
+							done();
+						});
+				});
+
+				it('should serve an always fresh version of the file', function(done) {
+					process.env.NODE_ENV = 'development';
+					helper.stop()
+						.create({ stylesheets: { files: ['sass.css'], processor: 'sass' } })
+						.start()
+						.request()
+						.get('/sass.css')
+						.expect(200)
+						.end(function(err, res) {
+							// supertest seems to bug, doing check here...
+							res.headers['x-cache'].should.equal('MISS');
+							process.env.NODE_ENV = 'test';
+							done();
+						});
+				});
+			});
+
 			it('should default to SASS', function(done) {
 				helper.stop()
 					.create({ stylesheets: { files: ['sass.css'] } })
@@ -1192,6 +1252,7 @@ describe('h5bp', function() {
 					});
 			});
 		});
+
 	});
 
 	describe('#createServer', function() {
