@@ -45,7 +45,8 @@
 		"async": "0.2.x",
 		"webmake": "~0.3.14",
 		"requirejs": "~2.1.5",
-		"node-sass": "~0.4.3"
+		"node-sass": "~0.4.3",
+		"stylus": "~0.32.1"
 	},
 	"devDependencies": {
 		"mocha": "1.8.x",
