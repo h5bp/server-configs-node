@@ -154,7 +154,33 @@ Tells if you want to serve `gzipped` content or not. By default this is `true`.
 If you are using `h5bp` as a middleware, we strongly encourage you to use the `compress` middleware provided by
 **express** / **connect**.
 
-## Contribute
+## Contributors
+
+```
+ project  : node-server-config
+ repo age : 2 years, 2 months
+ active   : 55 days
+ commits  : 98
+ files    : 73
+ authors  : 
+    42	Nicolas Gryman          42,9%
+    17	xonecas                 17,3%
+     9	Nick Baugh              9,2%
+     8	Sean Caetano Martin     8,2%
+     5	Benjamin Tan            5,1%
+     3	Clemens Stolle          3,1%
+     3	sean                    3,1%
+     2	AD7six                  2,0%
+     2	Dean Gelber             2,0%
+     2	alrra                   2,0%
+     1	Przemek Matylla         1,0%
+     1	David Murdoch           1,0%
+     1	Mike Almond             1,0%
+     1	Nicolas Gallagher       1,0%
+     1	Chad Smith              1,0%
+```
+
+### How to contribute?
 
 If you want to contribute for a **bug** or an **enhancement**, please do it on `master`.
 `master` is our **stable** branch where releases and fixes land.
