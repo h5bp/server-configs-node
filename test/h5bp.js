@@ -755,6 +755,20 @@ describe('h5bp', function() {
 							done();
 						});
 				});
+
+				it('should minify when specified', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['less.css'], processor: 'less' }, minify: true })
+						.start()
+						.request()
+						.get('/less.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^\.box\{background/);
+							done();
+						});
+				});
 			});
 
 			describe('using stylus', function() {
