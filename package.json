@@ -46,8 +46,9 @@
 		"webmake": "~0.3.14",
 		"requirejs": "~2.1.5",
 		"node-sass": "~0.4.3",
-    	"less": "~1.3.3",
-		"stylus": "~0.32.1"
+		"less": "~1.3.3",
+		"stylus": "~0.32.1",
+		"uglify-js": "~2.3.6"
 	},
 	"devDependencies": {
 		"mocha": "1.8.x",

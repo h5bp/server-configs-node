@@ -457,6 +457,20 @@ describe('h5bp', function() {
 							done();
 						});
 				});
+
+				it('should minify when specified', function(done) {
+					helper.stop()
+						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' }, minify: true })
+						.start()
+						.request()
+						.get('/commonjs.js')
+						.expect('content-type', 'application/javascript')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^\!function\(n\)/);
+							done();
+						});
+				});
 			});
 
 			describe('using AMD', function() {
