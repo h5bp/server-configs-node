@@ -517,6 +517,20 @@ describe('h5bp', function() {
 							done();
 						});
 				});
+
+				it('should minify when specified', function(done) {
+					helper.stop()
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' }, minify: true })
+						.start()
+						.request()
+						.get('/amd.js')
+						.expect('content-type', 'application/javascript')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^\(function\(\)\{/);
+							done();
+						});
+				});
 			});
 
 			it('should default to commonjs', function(done) {
