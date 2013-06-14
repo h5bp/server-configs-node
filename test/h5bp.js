@@ -829,6 +829,20 @@ describe('h5bp', function() {
 							done();
 						});
 				});
+
+				it('should minify when specified', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['stylus.css'], processor: 'stylus' }, minify: true })
+						.start()
+						.request()
+						.get('/stylus.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^body\{background/);
+							done();
+						});
+				});
 			});
 
 			it('should default to SASS', function(done) {
