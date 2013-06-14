@@ -622,7 +622,7 @@ describe('h5bp', function() {
 			});
 		});
 
-		describe('compilation of stylesheets', function() {
+		describe('compilation  & minification of stylesheets', function() {
 			describe('using SASS', function() {
 				it('should compile a file directly at the root level', function(done) {
 					helper.stop()
@@ -678,6 +678,20 @@ describe('h5bp', function() {
 							// supertest seems to bug, doing check here...
 							res.headers['x-cache'].should.equal('MISS');
 							process.env.NODE_ENV = 'test';
+							done();
+						});
+				});
+
+				it('should minify when specified', function(done) {
+					helper.stop()
+						.create({ stylesheets: { files: ['sass.css'], processor: 'sass' }, minify: true })
+						.start()
+						.request()
+						.get('/sass.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^body\{background/);
 							done();
 						});
 				});
@@ -802,7 +816,6 @@ describe('h5bp', function() {
 						});
 				});
 			});
-
 
 			it('should default to SASS', function(done) {
 				helper.stop()
