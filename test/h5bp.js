@@ -43,6 +43,15 @@ describe('h5bp', function() {
 				});
 			});
 
+			ALL.forEach(function(e) {
+				it('should be set for .' + e + ' with query string', function(done) {
+					helper.request()
+						.get('/test.' + e + '?' + Math.random())
+						.expect('Content-Type', express.mime.lookup(e))
+						.expect(200, done);
+				});
+			});
+
 			it('should leave content-type empty for files without extensions', function(done) {
 				helper.request()
 					.get('/')
@@ -319,11 +328,19 @@ describe('h5bp', function() {
 			});
 		});
 
-		describe('access to backup and source files', function() {
+		describe('access to hidden files', function() {
 			'htaccess git gitignore'.split(' ').forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
+						.expect(403, done);
+				});
+			});
+
+			'htaccess git gitignore'.split(' ').forEach(function(f) {
+				it('should be blocked for .' + f + ' with query string', function(done) {
+					helper.request()
+						.get('/.' + f + '?' + Math.random())
 						.expect(403, done);
 				});
 			});
@@ -334,6 +351,14 @@ describe('h5bp', function() {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
+						.expect(403, done);
+				});
+			});
+
+			'bak config sql fla psd ini log sh inc swp dist'.split(' ').forEach(function(f) {
+				it('should be blocked for .' + f + ' with query string', function(done) {
+					helper.request()
+						.get('/.' + f + '?' + Math.random())
 						.expect(403, done);
 				});
 			});
@@ -541,6 +566,15 @@ describe('h5bp', function() {
 				it('should be set for .' + e, function(done) {
 					helper.request()
 						.get('/test.' + e)
+						.expect('Content-Type', express.mime.lookup(e))
+						.expect(200, done);
+				});
+			});
+
+			ALL.forEach(function(e) {
+				it('should be set for .' + e + ' with query string', function(done) {
+					helper.request()
+						.get('/test.' + e + '?' + Math.random())
 						.expect('Content-Type', express.mime.lookup(e))
 						.expect(200, done);
 				});
@@ -822,11 +856,19 @@ describe('h5bp', function() {
 			});
 		});
 
-		describe('access to backup and source files', function() {
+		describe('access to hidden files', function() {
 			'htaccess git gitignore'.split(' ').forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
+						.expect(403, done);
+				});
+			});
+
+			'htaccess git gitignore'.split(' ').forEach(function(f) {
+				it('should be blocked for .' + f + ' with query string', function(done) {
+					helper.request()
+						.get('/.' + f + '?' + Math.random())
 						.expect(403, done);
 				});
 			});
@@ -837,6 +879,14 @@ describe('h5bp', function() {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
+						.expect(403, done);
+				});
+			});
+
+			'bak config sql fla psd ini log sh inc swp dist'.split(' ').forEach(function(f) {
+				it('should be blocked for .' + f + ' with query string', function(done) {
+					helper.request()
+						.get('/.' + f + '?' + Math.random())
 						.expect(403, done);
 				});
 			});
