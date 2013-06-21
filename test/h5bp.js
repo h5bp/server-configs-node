@@ -105,6 +105,13 @@ describe('h5bp', function() {
 		});
 
 		describe('serving cross-domain images', function() {
+			before(function() {
+				helper
+					.stop()
+					.create()
+					.start();
+			});
+
 			IMAGE.forEach(function(f) {
 				it('should be enabled for .' + f, function(done) {
 					helper.request()
@@ -601,6 +608,13 @@ describe('h5bp', function() {
 		});
 
 		describe('serving cross-domain images', function() {
+			before(function() {
+				helper
+					.stop()
+					.create()
+					.start();
+			});
+
 			IMAGE.forEach(function(f) {
 				it('should be enabled for .' + f, function(done) {
 					helper.request()
