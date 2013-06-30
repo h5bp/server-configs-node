@@ -23,8 +23,6 @@ const MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
 const DATA = 'appcache manifest html htm xml rdf json';
 const ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
 
-express.mime.load(path.join(__dirname, '..', 'lib', 'layers', 'h5bp.types'));
-
 describe('h5bp', function() {
 	describe('with express/connect', function() {
 		before(function() {
@@ -38,7 +36,9 @@ describe('h5bp', function() {
 				it('should be set for .' + e, function(done) {
 					helper.request()
 						.get('/test.' + e)
-						.expect('Content-Type', express.mime.lookup(e))
+						.expect('Content-Type', new RegExp(
+							express.mime.lookup(e).replace(/([\/\+])/g, '\\$1') + '(?:charset=UTF-8)?')
+						)
 						.expect(200, done);
 				});
 			});
@@ -47,7 +47,9 @@ describe('h5bp', function() {
 				it('should be set for .' + e + ' with query string', function(done) {
 					helper.request()
 						.get('/test.' + e + '?' + Math.random())
-						.expect('Content-Type', express.mime.lookup(e))
+						.expect('Content-Type', new RegExp(
+							express.mime.lookup(e).replace(/([\/\+])/g, '\\$1') + '(?:charset=UTF-8)?')
+						)
 						.expect(200, done);
 				});
 			});
@@ -56,6 +58,13 @@ describe('h5bp', function() {
 				helper.request()
 					.get('/')
 					.expect('Content-Type', 'x-text/woot')
+					.expect(200, done);
+			});
+
+			it('should leave content-type empty for files without extensions', function(done) {
+				helper.request()
+					.get('/foo')
+					.expect('Content-Type', 'x-text/bar')
 					.expect(200, done);
 			});
 		});
@@ -566,7 +575,9 @@ describe('h5bp', function() {
 				it('should be set for .' + e, function(done) {
 					helper.request()
 						.get('/test.' + e)
-						.expect('Content-Type', express.mime.lookup(e))
+						.expect('Content-Type', new RegExp(
+							express.mime.lookup(e).replace(/([\/\+])/g, '\\$1') + '(?:charset=UTF-8)?')
+						)
 						.expect(200, done);
 				});
 			});
@@ -575,7 +586,9 @@ describe('h5bp', function() {
 				it('should be set for .' + e + ' with query string', function(done) {
 					helper.request()
 						.get('/test.' + e + '?' + Math.random())
-						.expect('Content-Type', express.mime.lookup(e))
+						.expect('Content-Type', new RegExp(
+							express.mime.lookup(e).replace(/([\/\+])/g, '\\$1') + '(?:charset=UTF-8)?')
+						)
 						.expect(200, done);
 				});
 			});
@@ -1115,6 +1128,10 @@ var helper = {
 				res.set('content-type', 'x-text/woot');
 				res.send('woot!');
 				return;
+			}
+			else if ('/foo' == req.url) {
+				res.set('content-type', 'x-text/bar');
+				res.send('woot!');
 			}
 
 			next();
