@@ -76,7 +76,7 @@ describe('h5bp', function() {
 						.get('/test.' + f)
 						// http://www.useragentstring.com/pages/Internet%20Explorer/
 						.set('user-agent', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)')
-						.expect('X-UA-Compatible', 'IE=Edge,chrome=1')
+						.expect('X-UA-Compatible', 'IE=Edge')
 						.expect(200, done);
 				});
 			});
@@ -608,7 +608,7 @@ describe('h5bp', function() {
 						.get('/test.' + f)
 						// http://www.useragentstring.com/pages/Internet%20Explorer/
 						.set('user-agent', 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)')
-						.expect('X-UA-Compatible', 'IE=Edge,chrome=1')
+						.expect('X-UA-Compatible', 'IE=Edge')
 						.expect(200, done);
 				});
 			});
