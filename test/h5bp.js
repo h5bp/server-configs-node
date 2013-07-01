@@ -440,7 +440,7 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should serve an always fresh version of the file', function(done) {
+				it('should serve an always fresh version of the file in development', function(done) {
 					process.env.NODE_ENV = 'development';
 					helper.stop()
 						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
@@ -466,6 +466,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^!function\(n\)/);
+							done();
+						});
+				});
+
+				it('should minify in production env', function(done) {
+					process.env.NODE_ENV = 'production';
+					helper.stop()
+						.create({ scripts: { files: ['commonjs.js'], processor: 'commonjs' } })
+						.start()
+						.request()
+						.get('/commonjs.js')
+						.expect('content-type', 'application/javascript')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^!function\(n\)/);
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
@@ -514,7 +530,7 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should serve an always fresh version of the file', function(done) {
+				it('should serve an always fresh version of the file in development', function(done) {
 					process.env.NODE_ENV = 'development';
 					helper.stop()
 						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
@@ -540,6 +556,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^\(function\(\)\{/);
+							done();
+						});
+				});
+
+				it('should minify in production env', function(done) {
+					process.env.NODE_ENV = 'production';
+					helper.stop()
+						.create({ scripts: { files: ['amd.js'], processor: 'amd' } })
+						.start()
+						.request()
+						.get('/amd.js')
+						.expect('content-type', 'application/javascript')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^\(function\(\)\{/);
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
@@ -618,7 +650,7 @@ describe('h5bp', function() {
 			});
 		});
 
-		describe('compilation  & minification of stylesheets', function() {
+		describe('compilation & minification of stylesheets', function() {
 			describe('using SASS', function() {
 				it('should compile a file directly at the root level', function(done) {
 					helper.stop()
@@ -662,7 +694,7 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should serve an always fresh version of the file', function(done) {
+				it('should serve an always fresh version of the file in development', function(done) {
 					process.env.NODE_ENV = 'development';
 					helper.stop()
 						.create({ stylesheets: { files: ['sass.css'], processor: 'sass' } })
@@ -688,6 +720,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^body\{background/);
+							done();
+						});
+				});
+
+				it('should minify in production env', function(done) {
+					process.env.NODE_ENV = 'production';
+					helper.stop()
+						.create({ stylesheets: { files: ['sass.css'], processor: 'sass' } })
+						.start()
+						.request()
+						.get('/sass.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^body\{background/);
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
@@ -736,7 +784,7 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should serve an always fresh version of the file', function(done) {
+				it('should serve an always fresh version of the file in development', function(done) {
 					process.env.NODE_ENV = 'development';
 					helper.stop()
 						.create({ stylesheets: { files: ['sass.css'], processor: 'sass' } })
@@ -762,6 +810,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^\.box\{background/);
+							done();
+						});
+				});
+
+				it('should minify in production env', function(done) {
+					process.env.NODE_ENV = 'production';
+					helper.stop()
+						.create({ stylesheets: { files: ['less.css'], processor: 'less' } })
+						.start()
+						.request()
+						.get('/less.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^\.box\{background/);
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
@@ -810,7 +874,7 @@ describe('h5bp', function() {
 						});
 				});
 
-				it('should serve an always fresh version of the file', function(done) {
+				it('should serve an always fresh version of the file in development', function(done) {
 					process.env.NODE_ENV = 'development';
 					helper.stop()
 						.create({ stylesheets: { files: ['stylus.css'], processor: 'stylus' } })
@@ -836,6 +900,22 @@ describe('h5bp', function() {
 						.expect(200)
 						.end(function(err, res) {
 							res.text.should.match(/^body\{background/);
+							done();
+						});
+				});
+
+				it('should minify in production env', function(done) {
+					process.env.NODE_ENV = 'production';
+					helper.stop()
+						.create({ stylesheets: { files: ['stylus.css'], processor: 'stylus' } })
+						.start()
+						.request()
+						.get('/stylus.css')
+						.expect('content-type', 'text/css')
+						.expect(200)
+						.end(function(err, res) {
+							res.text.should.match(/^body\{background/);
+							process.env.NODE_ENV = 'test';
 							done();
 						});
 				});
