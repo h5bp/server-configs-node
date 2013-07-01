@@ -2,7 +2,7 @@
 	"curly": false,
 	"eqeqeq": false,
 	"immed": true,
-	"latedef": true,
+	"latedef": false,
 	"newcap": false,
 	"noarg": true,
 	"sub": true,
@@ -16,6 +16,7 @@
 		"process": true,
 		"describe": true,
 		"before": true,
+		"afterEach": true,
 		"it": true
 	}
 }

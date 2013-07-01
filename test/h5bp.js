@@ -1,5 +1,3 @@
-/*global process:true, describe: true, before: true, it: true */
-
 // prevents express for dumping error in test output
 process.env.NODE_ENV = 'test';
 
@@ -467,7 +465,7 @@ describe('h5bp', function() {
 						.expect('content-type', 'application/javascript')
 						.expect(200)
 						.end(function(err, res) {
-							res.text.should.match(/^\!function\(n\)/);
+							res.text.should.match(/^!function\(n\)/);
 							done();
 						});
 				});
@@ -559,8 +557,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if processor is not valid', function() {
 				(function() {
-					helper.stop()
-						.create({ scripts: { processor: 'madafaka' } })
+					helper.stop().create({ scripts: { processor: 'madafaka' } });
 				}).should.throw(/Script concatenation processor can be commonjs, amd/);
 				helper.stop();
 			});
@@ -577,8 +574,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if there is no scripts to process', function() {
 				(function() {
-					helper.stop()
-						.create({ scripts: { processor: 'commonjs' } })
+					helper.stop().create({ scripts: { processor: 'commonjs' } });
 				}).should.throw(/There is no script to process/);
 				helper.stop();
 			});
@@ -857,8 +853,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if processor is not valid', function() {
 				(function() {
-					helper.stop()
-						.create({ scripts: { processor: 'madafaka' } })
+					helper.stop().create({ scripts: { processor: 'madafaka' } });
 				}).should.throw(/Script concatenation processor can be commonjs, amd/);
 				helper.stop();
 			});
@@ -875,8 +870,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if there is no stylesheets to process', function() {
 				(function() {
-					helper.stop()
-						.create({ stylesheets: { processor: 'sass' } })
+					helper.stop().create({ stylesheets: { processor: 'sass' } });
 				}).should.throw(/There is no stylesheet to process/);
 				helper.stop();
 			});
@@ -1411,8 +1405,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if processor is not valid', function() {
 				(function() {
-					helper.stop()
-						.create({ scripts: { processor: 'madafaka' } })
+					helper.stop().create({ scripts: { processor: 'madafaka' } });
 				}).should.throw(/Script concatenation processor can be commonjs, amd/);
 				helper.stop();
 			});
@@ -1429,8 +1422,7 @@ describe('h5bp', function() {
 
 			it('should throw an error if there is no scripts to process', function() {
 				(function() {
-					helper.stop()
-						.create({ scripts: { processor: 'commonjs' } })
+					helper.stop().create({ scripts: { processor: 'commonjs' } });
 				}).should.throw(/There is no script to process/);
 				helper.stop();
 			});
