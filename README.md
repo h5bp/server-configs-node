@@ -1,4 +1,4 @@
-# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg#0.0.6)](https://npmjs.org/package/h5bp)</sup>
+# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg#0.0.7)](https://npmjs.org/package/h5bp)</sup>
 
 **HTML5 boilerplate** (H5BP) server config for node.js.
 
@@ -18,12 +18,10 @@ It also focuses on offering additional features such as on-the-fly script concat
 
 [Apache]: https://github.com/h5bp/server-configs/tree/master/apache
 
-### Next release focus (v0.0.7)
+### Next release focus (v0.0.8)
 
- - `grunt` style scripts and stylesheets concatenation.
- - on-the-fly scripts minification.
- - on-the-fly `LESS` and `SASS` compilation.
- - development mode: always refresh on-the-fly generated resources.
+ - refactoring code and tests.
+ - responsive images: #13.
 
 ## Installation
 
@@ -154,30 +152,42 @@ Tells if you want to serve `gzipped` content or not. By default this is `true`.
 If you are using `h5bp` as a middleware, we strongly encourage you to use the `compress` middleware provided by
 **express** / **connect**.
 
+## Release notes
+
+```
+v0.0.7
+  - better mime type sniffing.
+  - on-th-fly sass, less and sytlus compilation.
+  - on-th-fly scripts compilation using commonjs or amd.
+  - on-th-fly scripts and stylesheets minification.
+  - various other minor bugs.
+```
+
 ## Contributors
 
 ```
  project  : node-server-config
- repo age : 2 years, 2 months
- active   : 55 days
- commits  : 98
- files    : 73
+ repo age : 2 years, 4 months
+ active   : 67 days
+ commits  : 123
+ files    : 85
  authors  : 
-    42	Nicolas Gryman          42,9%
-    17	xonecas                 17,3%
-     9	Nick Baugh              9,2%
-     8	Sean Caetano Martin     8,2%
-     5	Benjamin Tan            5,1%
-     3	Clemens Stolle          3,1%
-     3	sean                    3,1%
-     2	AD7six                  2,0%
-     2	Dean Gelber             2,0%
-     2	alrra                   2,0%
-     1	Przemek Matylla         1,0%
-     1	David Murdoch           1,0%
-     1	Mike Almond             1,0%
-     1	Nicolas Gallagher       1,0%
-     1	Chad Smith              1,0%
+    63	Nicolas Gryman          51,2%
+    17	xonecas                 13,8%
+     9	Nick Baugh              7,3%
+     8	Sean Caetano Martin     6,5%
+     7	Benjamin Tan            5,7%
+     3	Clemens Stolle          2,4%
+     3	sean                    2,4%
+     2	alrra                   1,6%
+     2	AD7six                  1,6%
+     2  David Clarke            1.6%
+     2  Dean Gelber             1,6%
+     1	Mike Almond             0,8%
+     1	David Murdoch           0,8%
+     1	Nicolas Gallagher       0,8%
+     1	Chad Smith              0,8%
+     1	Przemek Matylla         0,8%
 ```
 
 ### How to contribute?
@@ -234,16 +244,16 @@ git checkout [master|develop]
 git rebase h5bp/master
 ```
 
-If you are not confortable with rebasing, please take a look at http://git-scm.com/book/en/Git-Branching-Rebasing
+If you are not comfortable with rebasing, please take a look at http://git-scm.com/book/en/Git-Branching-Rebasing
 or ask us some help :)
 
 ### Squash your commits
 
 At the end of your pull request review, you may have several commits in it.
 Please squash all your commits into one with a clear message.
-This is to have a clear history in the project when each commit is relevent to a **feature**, **enhancement** or **bug**.
+This is to have a clear history in the project when each commit is relevant to a **feature**, **enhancement** or **bug**.
 
-If you are not confortable with squashing commits, please take a look at http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
+If you are not comfortable with squashing commits, please take a look at http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
 or ask us some help again :)
 
 ### Thanks!
