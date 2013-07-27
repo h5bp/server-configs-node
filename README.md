@@ -18,7 +18,7 @@
 
 It also focuses on offering additional features such as on-the-fly script concatenation using **CommonJS** or **AMD**.
 
-[Apache]: https://github.com/h5bp/server-configs/tree/master/apache
+[Apache]: https://github.com/h5bp/server-configs-apache
 
 ### Next release focus (v0.0.8)
 
