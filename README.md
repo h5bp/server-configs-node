@@ -2,6 +2,8 @@
 
 **HTML5 boilerplate** (H5BP) server config for node.js.
 
+[![NPM](https://nodei.co/npm/h5bp.png)](https://nodei.co/npm/h5bp)
+
 [![Build Status](https://secure.travis-ci.org/h5bp/node-server-config.png)](http://travis-ci.org/h5bp/node-server-config)
 [![Build Status](https://gemnasium.com/ngryman/node-server-config.png)](https://gemnasium.com/ngryman/node-server-config)
 
@@ -22,12 +24,6 @@ It also focuses on offering additional features such as on-the-fly script concat
 
  - refactoring code and tests.
  - responsive images: #13.
-
-## Installation
-
-```bash
-npm install h5bp
-```
 
 ## Quick Start
 
