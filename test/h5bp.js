@@ -19,7 +19,7 @@ var MISC = 'txt crx oex xpi safariextz webapp vcf swf vtt'.split(' ');
 var FEED = RSS;
 var MEDIA = IMAGE.concat(VIDEO.concat(AUDIO));
 var DATA = 'appcache manifest html htm xml rdf json';
-var ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js jsonp css'.split(' '));
+var ALL = [].concat(HTML, IMAGE, ICON, VIDEO, AUDIO, FONT, RSS, 'js css'.split(' '));
 
 describe('h5bp', function() {
 	describe('with express/connect', function() {
@@ -214,7 +214,7 @@ describe('h5bp', function() {
 			});
 
 			describe('one year', function() {
-				'js jsonp css'.split(' ').forEach(function(f) {
+				'js css'.split(' ').forEach(function(f) {
 					it('should be set for .' + f, function(done) {
 						helper.request()
 							.get('/test.' + f)
@@ -1180,7 +1180,7 @@ describe('h5bp', function() {
 			});
 
 			describe('one year', function() {
-				'js jsonp css'.split(' ').forEach(function(f) {
+				'js css'.split(' ').forEach(function(f) {
 					it('should be set for .' + f, function(done) {
 						helper.request()
 							.get('/test.' + f)
