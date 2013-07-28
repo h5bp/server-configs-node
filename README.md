@@ -24,6 +24,12 @@ It also focuses on offering additional features such as on-the-fly script concat
  - refactoring code and tests.
  - responsive images: #13.
 
+## Installation
+
+```bash
+npm install --save h5bp
+```
+
 ## Quick Start
 
 ### Create a simple http server
