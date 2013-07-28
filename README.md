@@ -1,11 +1,11 @@
-# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/node-server-config.svg#0.0.7)](https://npmjs.org/package/h5bp)</sup>
+# [H5BP](http://h5bp.github.com) <sup>[![Version Badge](http://vb.teelaun.ch/h5bp/server-configs-node.svg#0.0.7)](https://npmjs.org/package/h5bp)</sup>
 
 **HTML5 boilerplate** (H5BP) server config for node.js.
 
 [![NPM](https://nodei.co/npm/h5bp.png)](https://nodei.co/npm/h5bp)
 
-[![Build Status](https://secure.travis-ci.org/h5bp/node-server-config.png)](http://travis-ci.org/h5bp/node-server-config)
-[![Build Status](https://gemnasium.com/ngryman/node-server-config.png)](https://gemnasium.com/ngryman/node-server-config)
+[![Build Status](https://secure.travis-ci.org/h5bp/server-configs-node.png)](http://travis-ci.org/h5bp/server-configs-node)
+[![Build Status](https://gemnasium.com/ngryman/server-configs-node.png)](https://gemnasium.com/ngryman/server-configs-node)
 
 `h5bp` for node.js follows the guidelines of the [Apache] version:
  - secures backup and hidden files.
@@ -162,7 +162,7 @@ v0.0.7
 ## Contributors
 
 ```
- project  : node-server-config
+ project  : server-configs-node
  repo age : 2 years, 4 months
  active   : 67 days
  commits  : 123
