@@ -2,7 +2,7 @@
 
 **HTML5 boilerplate** (H5BP) server config for node.js.
 
-[![NPM](https://nodei.co/npm/h5bp.png)](https://nodei.co/npm/h5bp)
+[![NPM](https://nodei.co/npm/h5bp.png)](https://nodei.co/npm/h5bp/)
 
 [![Build Status](https://secure.travis-ci.org/h5bp/server-configs-node.png)](http://travis-ci.org/h5bp/server-configs-node)
 
