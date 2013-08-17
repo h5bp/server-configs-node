@@ -1,65 +1,164 @@
-If you want to contribute for a **bug** or an **enhancement**, please do it on `master`.
-`master` is our **stable** branch where releases and fixes land.
+# Contributing to Node Server Configs
 
-If you want to contribute for a **new feature**, please do it on `develop`.
-`develop` is our **mainline** where the next release is prepared.
+Please take a moment to review this document in order to make the contribution
+process easy and effective for everyone involved.
 
-Here is the workflow overview:
+Following these guidelines helps to communicate that you respect the time of
+the developers managing and developing this open source project. In return,
+they should reciprocate that respect in addressing your issue or assessing
+patches and features.
 
-- Fork the repository.
-- Clone it.
-- Checkout the right branch.
-- Add your awesome contribution.
-- Test!
-- Push to **Github**.
-- Open a pull request to the right branch.
 
-## Always run tests
+## Using the issue tracker
 
-This project tries to be as **test driven** as possible.
-So your contribution should always be covered by associated *functional test(s)*.
-This ensure that what you are actually adding work as expected and do not break anything.
-We use [Mocha] to run the tests and [Chai] as the assertion library.
+The issue tracker is the preferred channel for [bug reports](#bugs),
+[features requests](#features) and [submitting pull
+requests](#pull-requests), but please respect the following restrictions:
 
-Before pushing anything to **Github**, please ensure that all tests are passing.
+* Please **do not** use the issue tracker for personal support requests (use
+  [Stack Overflow](http://stackoverflow.com) or IRC).
 
-From the root of the project you can run tests like this:
-```bash
-npm test
-```
+* Please **do not** derail or troll issues. Keep the discussion on topic and
+  respect the opinions of others.
 
-[Mocha]: http://visionmedia.github.io/mocha/
-[Chai]: http://chaijs.com/
 
-## Keeping your repo in sync
+<a name="bugs"></a>
+## Bug reports
 
-Please **rebase** instead of **merging**.
-This is just to avoid having a lot of merge commits polluting the history of the project.
+A bug is a _demonstrable problem_ that is caused by the code in the repository.
+Good bug reports are extremely helpful - thank you!
 
-```bash
-# this adds our repo as another remote, only the first time
-git remote add h5bp git://github.com/whoever/whatever.git
+Guidelines for bug reports:
 
-# fetches all branches from h5bp repo, only the first time
-git fetch h5bp
+1. **Use the GitHub issue search** &mdash; check if the issue has already been
+   reported.
 
-# make sure your have checkout the right branch
-git checkout [master|develop]
+2. **Check if the issue has been fixed** &mdash; try to reproduce it using the
+   latest `master` or development branch in the repository.
 
-# rebase h5bp/master
-git rebase h5bp/master
-```
+3. **Isolate the problem** &mdash; ideally create a [reduced test
+   case](http://css-tricks.com/6263-reduced-test-cases/) and a live example.
 
-If you are not comfortable with rebasing, please take a look at http://git-scm.com/book/en/Git-Branching-Rebasing
-or ask us some help :)
+A good bug report shouldn't leave others needing to chase you up for more
+information. Please try to be as detailed as possible in your report. What is
+your environment? What steps will reproduce the issue? What browser(s) and OS
+experience the problem? What would you expect to be the outcome? All these
+details will help people to fix any potential bugs.
 
-## Squash your commits
+Example:
 
-At the end of your pull request review, you may have several commits in it.
-Please squash all your commits into one with a clear message.
-This is to have a clear history in the project when each commit is relevant to a **feature**, **enhancement** or **bug**.
+> Short and descriptive example bug report title
+>
+> A summary of the issue and the browser/OS environment in which it occurs. If
+> suitable, include the steps required to reproduce the bug.
+>
+> 1. This is the first step
+> 2. This is the second step
+> 3. Further steps, etc.
+>
+> `<url>` - a link to the reduced test case
+>
+> Any other information you want to share that is relevant to the issue being
+> reported. This might include the lines of code that you have identified as
+> causing the bug, and potential solutions (and your opinions on their
+> merits).
 
-If you are not comfortable with squashing commits, please take a look at http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
-or ask us some help again :)
+
+<a name="features"></a>
+## Feature requests
+
+Feature requests are welcome. But take a moment to find out whether your idea
+fits with the scope and aims of the project. It's up to *you* to make a strong
+case to convince the project's developers of the merits of this feature. Please
+provide as much detail and context as possible.
+
+
+<a name="pull-requests"></a>
+## Pull requests
+
+Good pull requests - patches, improvements, new features - are a fantastic
+help. They should remain focused in scope and avoid containing unrelated
+commits.
+
+Note that **patches** or an **improvements** lands on `master`, **new features** on `develop`.
+`master` is our stable branch while `develop` is our mainline, where the next release is prepared.
+
+**Please ask first** before embarking on any significant pull request (e.g.
+implementing features, refactoring code, porting to a different language),
+otherwise you risk spending a lot of time working on something that the
+project's developers might not want to merge into the project.
+
+Please adhere to the coding conventions used throughout a project (indentation,
+accurate comments, etc.) and any other requirements (such as test coverage).
+
+Adhering to the following this process is the best way to get your work
+included in the project:
+
+1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
+   and configure the remotes:
+
+   ```bash
+   # Clone your fork of the repo into the current directory
+   git clone https://github.com/h5bp/server-configs-node
+   # Navigate to the newly cloned directory
+   cd server-configs-node
+   # Assign the original repo to a remote called "upstream"
+   git remote add upstream https://github.com/h5bp/server-configs-node
+   ```
+
+2. If you cloned a while ago, get the latest changes from upstream:
+
+   ```bash
+   git checkout [master|develop]
+   git pull upstream [master|develop]
+   ```
+
+3. Create a new topic branch (off the main project development branch) to
+   contain your feature, change, or fix:
+
+   ```bash
+   git checkout -b <topic-branch-name>
+   ```
+
+4. Commit your changes in logical chunks. Please adhere to these [git commit
+   message guidelines](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+   or your code is unlikely be merged into the main project. Use Git's
+   [interactive rebase](https://help.github.com/articles/interactive-rebase)
+   feature to tidy up your commits before making them public.
+
+5. Locally merge (or rebase) the upstream development branch into your topic branch:
+
+   ```bash
+   git pull [--rebase] upstream [master|develop]
+   ```
+
+6. Push your topic branch up to your fork:
+
+   ```bash
+   git push origin <topic-branch-name>
+   ```
+
+7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+    with a clear title and description.
+
+**IMPORTANT**: By submitting a patch, you agree to allow the project owner to
+license your work under the same license as that used by the project.
+
+### Run tests
+
+This project tries to be as test driven as possible. So your contribution should always be covered by associated test(s).
+It ensures that your contribution is working as expected and does not break anything.
+We use **Mocha** to run the tests and **Chai** as the assertion library.
+
+Before pushing anything to Github, please ensure that all tests are passing.
+From the root of the project you can run tests with `npm test`.
+
+### Squash commits
+
+At the end of your pull request review, you may have several commits in it. Please squash all your commits into one
+with a clear message. This helps the project to have a clear history, when each commit is relevant to a feature,
+improvement or bug.
+
+If you are not comfortable with squashing commits, please take a look at http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html or ask us some help again :)
 
 # Thanks!
