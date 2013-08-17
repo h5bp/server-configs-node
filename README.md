@@ -172,7 +172,7 @@ v0.0.7
  active   : 67 days
  commits  : 123
  files    : 85
- authors  : 
+ authors  :
     63	Nicolas Gryman          51,2%
     17	xonecas                 13,8%
      9	Nick Baugh              7,3%
@@ -256,5 +256,9 @@ This is to have a clear history in the project when each commit is relevant to a
 
 If you are not comfortable with squashing commits, please take a look at http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
 or ask us some help again :)
+
+## License
+
+[MIT License](LICENSE.md)
 
 ### Thanks!
