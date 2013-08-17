@@ -153,17 +153,6 @@ Tells if you want to serve `gzipped` content or not. By default this is `true`.
 If you are using `h5bp` as a middleware, we strongly encourage you to use the `compress` middleware provided by
 **express** / **connect**.
 
-## Release notes
-
-```
-v0.0.7
-  - better mime type sniffing.
-  - on-th-fly sass, less and sytlus compilation.
-  - on-th-fly scripts compilation using commonjs or amd.
-  - on-th-fly scripts and stylesheets minification.
-  - various other minor bugs.
-```
-
 ## License
 
 [MIT License](LICENSE.md)
