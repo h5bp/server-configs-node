@@ -81,3 +81,12 @@ application/font-woff  woff
 #       the `font/opentype` MIME type: http://i.imgur.com/8c5RN8M.png.
 # Added by: alrra
 font/opentype  otf
+
+# What: Alternative ICO file extension - http://en.wikipedia.org/wiki/ICO_%28file_format%29
+# Why:  The MIME type for the `.cur` file doesn't matter as browsers seem to
+        sniff the content. However, `image/x-icon` is specified because it's
+        the one usually used for `.ico` file and because it's shorter than the
+        other frequently used one (`image/vnd.microsoft.icon`), making the
+        header size smaller.
+# Added by: ngryman
+image/x-icon  cur

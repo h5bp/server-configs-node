@@ -9,7 +9,7 @@ var path = require('path');
 
 var HTML = 'html htm'.split(' ');
 var IMAGE = 'bmp gif jpeg jpg jpe png svg svgz tiff tif ico'.split(' ');
-var ICON = 'ico'.split(' ');
+var ICON = 'ico cur'.split(' ');
 var VIDEO = 'ogv mp4 m4v f4v f4p webm flv'.split(' ');
 var AUDIO = 'oga ogg m4a f4a f4b'.split(' ');
 var FONT = 'ttf ttc otf eot woff'.split(' ');
