@@ -18,7 +18,8 @@
 		}
 	],
 	"scripts": {
-		"test": "mocha test --reporter dot --globals requirejsVars --bail"
+		"lint": "jshint .",
+		"test": "npm run lint && mocha test --reporter dot --globals requirejsVars --bail"
 	},
 	"keywords": [
 		"h5bp",
@@ -54,6 +55,7 @@
 	"devDependencies": {
 		"chai": "~1.8.x",
 		"connect": "~2.10.x",
+		"jshint": "~2.3.x",
 		"mocha": "~1.13.x",
 		"supertest": "~0.8.x"
 	}

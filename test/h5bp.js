@@ -1,3 +1,5 @@
+/* jshint -W068 */
+
 // prevents express for dumping error in test output
 process.env.NODE_ENV = 'test';
 
