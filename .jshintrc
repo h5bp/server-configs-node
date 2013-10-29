@@ -10,6 +10,7 @@
 	"newcap": false,
 	"noarg": true,
 	"node": true,
+	"quotmark": "single",
 	"sub": true,
 	"undef": true,
 	"globals": {
