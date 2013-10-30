@@ -1,7 +1,7 @@
 {
 	"name": "h5bp",
 	"description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
 	"contributors": [
 		{
