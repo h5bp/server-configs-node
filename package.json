@@ -42,21 +42,21 @@
 	},
 	"main": "lib/h5bp",
 	"dependencies": {
-		"async": "0.2.x",
-		"clean-css": "~1.1.x",
-		"express": "~3.4.x",
+		"async": "~0.2.9",
+		"clean-css": "~1.1.7",
+		"express": "~3.4.4",
 		"less": "~1.5.0",
 		"node-sass": "~0.7.0",
 		"requirejs": "~2.1.9",
-		"stylus": "~0.38.0",
+		"stylus": "~0.39.0",
 		"uglify-js": "~2.4.1",
 		"webmake": "~0.3.21"
 	},
 	"devDependencies": {
-		"chai": "~1.8.x",
-		"connect": "~2.10.x",
-		"jshint": "~2.3.x",
-		"mocha": "~1.13.x",
-		"supertest": "~0.8.x"
+		"chai": "~1.8.1",
+		"connect": "~2.11.0",
+		"jshint": "~2.3.0",
+		"mocha": "~1.13.0",
+		"supertest": "~0.8.1"
 	}
 }
