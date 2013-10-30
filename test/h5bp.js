@@ -1,3 +1,5 @@
+/* jshint -W068 */
+
 // prevents express for dumping error in test output
 process.env.NODE_ENV = 'test';
 
@@ -371,7 +373,7 @@ describe('h5bp', function() {
 			});
 		});
 
-		it("should not advertise what kind of server we're running", function(done) {
+		it('should not advertise what kind of server we\'re running', function(done) {
 			helper.request()
 				.get('/test.html')
 				.expect(200)
@@ -1337,7 +1339,7 @@ describe('h5bp', function() {
 			});
 		});
 
-		it("should not advertise what kind of server we're running", function(done) {
+		it('should not advertise what kind of server we\'re running', function(done) {
 			helper.request()
 				.get('/test.html')
 				.expect(200)

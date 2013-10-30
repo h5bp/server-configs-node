@@ -1,22 +1,23 @@
 {
+	"boss": true,
+	"browser": false,
 	"curly": false,
 	"eqeqeq": false,
+	"eqnull": true,
+	"expr": true,
 	"immed": true,
 	"latedef": false,
 	"newcap": false,
 	"noarg": true,
+	"node": true,
+	"quotmark": "single",
 	"sub": true,
 	"undef": true,
-	"boss": true,
-	"eqnull": true,
-	"browser": false,
-	"expr": true,
-	"node": true,
 	"globals": {
-		"process": true,
-		"describe": true,
-		"before": true,
 		"afterEach": true,
-		"it": true
+		"before": true,
+		"describe": true,
+		"it": true,
+		"process": true
 	}
 }
