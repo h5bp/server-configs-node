@@ -499,7 +499,7 @@ describe('h5bp', function() {
 						.expect('content-type', 'application/javascript')
 						.expect(200)
 						.end(function(err, res) {
-							res.text.should.match(/^\n\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
+							res.text.should.match(/^\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
 							done();
 						});
 				});
@@ -527,7 +527,7 @@ describe('h5bp', function() {
 						.expect('content-type', 'application/javascript')
 						.expect(200)
 						.end(function(err, res) {
-							res.text.should.match(/^\n\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
+							res.text.should.match(/^\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
 							done();
 						});
 				});
@@ -1421,7 +1421,7 @@ describe('h5bp', function() {
 						.expect('content-type', 'application/javascript')
 						.expect(200)
 						.end(function(err, res) {
-							res.text.should.match(/^\n\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
+							res.text.should.match(/^\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
 							done();
 						});
 				});
@@ -1449,7 +1449,7 @@ describe('h5bp', function() {
 						.expect('content-type', 'application/javascript')
 						.expect(200)
 						.end(function(err, res) {
-							res.text.should.match(/^\n\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
+							res.text.should.match(/^\/\/ https:\/\/github\.com\/jrburke\/r\.js/);
 							done();
 						});
 				});
