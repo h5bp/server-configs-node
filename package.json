@@ -46,7 +46,7 @@
 		"clean-css": "~1.1.7",
 		"express": "~3.4.4",
 		"less": "~1.5.0",
-		"node-sass": "~0.7.0",
+		"node-sass": "~0.8.1",
 		"requirejs": "~2.1.9",
 		"stylus": "~0.39.0",
 		"uglify-js": "~2.4.1",
