@@ -2,20 +2,12 @@
 	"name": "h5bp",
 	"description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
 	"version": "0.1.0",
+	"license": "MIT",
 	"author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
 	"contributors": [
-		{
-			"name": "Nicolas Gryman",
-			"email": "ngryman@gmail.com"
-		},
-		{
-			"name": "Nick Baugh",
-			"email": "niftylettuce@gmail.com"
-		},
-		{
-			"name": "Benjamin Tan",
-			"email": "demoneaux@gmail.com"
-		}
+		"Nicolas Gryman <ngryman@gmail.com>",
+		"Nick Baugh <niftylettuce@gmail.com>",
+		"Benjamin Tan <demoneaux@gmail.com>"
 	],
 	"scripts": {
 		"lint": "jshint .",
@@ -35,6 +27,9 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/h5bp/server-configs-node.git"
+	},
+	"bugs": {
+		"url": "https://github.com/h5bp/server-configs-node/issues"
 	},
 	"engines": {
 		"node": "0.10.x",
