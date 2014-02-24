@@ -1,3 +1,4 @@
 .*
-docs/
+CONTRIBUTING.md
+doc/
 test/
