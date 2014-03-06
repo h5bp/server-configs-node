@@ -15,7 +15,6 @@
 		"test": "npm run lint && npm run mocha"
 	},
 	"keywords": [
-		"h5bp",
 		"html5",
 		"boilerplate",
 		"express",
