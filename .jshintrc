@@ -1,25 +1,15 @@
 {
-	"boss": true,
-	"browser": false,
 	"curly": false,
 	"eqeqeq": false,
-	"eqnull": true,
 	"expr": true,
 	"immed": true,
 	"indent": 4,
 	"latedef": false,
-	"newcap": false,
+	"newcap": true,
 	"noarg": true,
 	"node": true,
 	"quotmark": "single",
 	"sub": true,
 	"trailing": true,
-	"undef": true,
-	"globals": {
-		"afterEach": true,
-		"before": true,
-		"describe": true,
-		"it": true,
-		"process": true
-	}
+	"undef": true
 }
