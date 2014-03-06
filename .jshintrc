@@ -14,12 +14,5 @@
 	"quotmark": "single",
 	"sub": true,
 	"trailing": true,
-	"undef": true,
-	"globals": {
-		"afterEach": true,
-		"before": true,
-		"describe": true,
-		"it": true,
-		"process": true
-	}
+	"undef": true
 }
