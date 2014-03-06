@@ -10,8 +10,9 @@
 		"Benjamin Tan <demoneaux@gmail.com>"
 	],
 	"scripts": {
+		"mocha": "mocha test --reporter dot --globals requirejsVars --bail",
 		"lint": "jshint .",
-		"test": "npm run lint && mocha test --reporter dot --globals requirejsVars --bail"
+		"test": "npm run lint && npm run mocha"
 	},
 	"keywords": [
 		"h5bp",
