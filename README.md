@@ -10,7 +10,7 @@
 
 `h5bp` for node.js follows the guidelines of the [Apache] version:
  - secures backup and hidden files.
- - optionally redirects `www.yoursite.tld` to `yoursite.tld` or `yoursite.tld` to `www.yoursite.tld`.
+ - optionally redirects `www.yoursite.tld` to `yoursite.tld` or vice versa.
  - offers a simple cache busting mechanism.
  - normalize content types.
  - optionally enables CORS.
