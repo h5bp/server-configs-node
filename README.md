@@ -21,7 +21,7 @@ It also focuses on offering additional features such as on-the-fly script concat
 
 [Apache]: https://github.com/h5bp/server-configs-apache
 
-### Next release focus (v0.1.2)
+### Next release focus (v0.1.3)
 
  - refactoring code and tests.
  - responsive images: #13.
