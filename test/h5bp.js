@@ -381,13 +381,20 @@ describe('h5bp', function() {
 				});
 		});
 
-		it('should serve compressed files', function(done) {
-			helper.request()
-				.get('/test.html')
-				.set('Accept-Encoding', 'gzip,deflate,sdch')
-				.expect('Vary', 'Accept-Encoding')
-				.expect('Content-Encoding', 'gzip')
-				.expect(200, done);
+		describe('compressed files', function() {
+			'html js json css txt rss atom xml'.split(' ').forEach(function(f) {
+				it('should be served for .' + f, function(done) {
+					helper.stop()
+						.create({ compress: true })
+						.start()
+						.request()
+						.get('/test.' + f)
+						.set('Accept-Encoding', 'gzip,deflate,sdch')
+						.expect('Vary', 'Accept-Encoding')
+						.expect('Content-Encoding', 'gzip')
+						.expect(200, done);
+				});
+			});
 		});
 
 		it('should tell that a file does not exist', function(done) {
@@ -1347,13 +1354,17 @@ describe('h5bp', function() {
 				});
 		});
 
-		it('should serve compressed files', function(done) {
-			helper.request()
-				.get('/test.html')
-				.set('Accept-Encoding', 'gzip,deflate,sdch')
-				.expect('Vary', 'Accept-Encoding')
-				.expect('Content-Encoding', 'gzip')
-				.expect(200, done);
+		describe('compressed files', function() {
+			'html js json css txt rss atom xml'.split(' ').forEach(function(f) {
+				it('should be served for .' + f, function(done) {
+					helper.request()
+						.get('/test.' + f)
+						.set('Accept-Encoding', 'gzip,deflate,sdch')
+						.expect('Vary', 'Accept-Encoding')
+						.expect('Content-Encoding', 'gzip')
+						.expect(200, done);
+				});
+			});
 		});
 
 		it('should tell that a file does not exist', function(done) {

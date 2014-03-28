@@ -149,6 +149,7 @@ Tells if you want to log server requests or not. This can also be an object cont
 ### compress
 
 Tells if you want to serve `gzipped` content or not. By default this is `true`.
+This can also be an object containing [`compress` middleware options](http://www.senchalabs.org/connect/compress.html).
 
 If you are using `h5bp` as a middleware, we strongly encourage you to use the `compress` middleware provided by
 **express** / **connect**.
