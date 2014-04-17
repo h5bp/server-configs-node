@@ -1,6 +1,6 @@
 /* jshint -W068 */
 
-/* global afterEach: true, before: true, describe: true, it: true, process: true */
+/* jshint mocha:true */
 
 // prevents express for dumping error in test output
 process.env.NODE_ENV = 'test';
