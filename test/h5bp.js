@@ -218,7 +218,7 @@ describe('h5bp', function() {
 			});
 
 			describe('one year', function() {
-				'js css'.split(' ').forEach(function(f) {
+				['js','css'].forEach(function(f) {
 					it('should be set for .' + f, function(done) {
 						helper.request()
 							.get('/test.' + f)
@@ -340,7 +340,7 @@ describe('h5bp', function() {
 		});
 
 		describe('access to hidden files', function() {
-			'htaccess git gitignore'.split(' ').forEach(function(f) {
+			['htaccess', 'git', 'gitignore'].forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
@@ -358,7 +358,7 @@ describe('h5bp', function() {
 		});
 
 		describe('access to backup and source files', function() {
-			'bak config sql fla psd ini log sh inc swp dist'.split(' ').forEach(function(f) {
+			['bak', 'config', 'sql', 'fla', 'psd', 'ini', 'log', 'sh', 'inc', 'swp', 'dist'].forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
@@ -366,7 +366,7 @@ describe('h5bp', function() {
 				});
 			});
 
-			'bak config sql fla psd ini log sh inc swp dist'.split(' ').forEach(function(f) {
+			['bak', 'config', 'sql', 'fla', 'psd', 'ini', 'log', 'sh', 'inc', 'swp', 'dist'].forEach(function(f) {
 				it('should be blocked for .' + f + ' with query string', function(done) {
 					helper.request()
 						.get('/.' + f + '?' + Math.random())
@@ -1184,7 +1184,7 @@ describe('h5bp', function() {
 			});
 
 			describe('one year', function() {
-				'js css'.split(' ').forEach(function(f) {
+				['js', 'css'].forEach(function(f) {
 					it('should be set for .' + f, function(done) {
 						helper.request()
 							.get('/test.' + f)
@@ -1306,7 +1306,7 @@ describe('h5bp', function() {
 		});
 
 		describe('access to hidden files', function() {
-			'htaccess git gitignore'.split(' ').forEach(function(f) {
+			['htaccess', 'git', 'gitignore'].forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
@@ -1324,7 +1324,7 @@ describe('h5bp', function() {
 		});
 
 		describe('access to backup and source files', function() {
-			'bak config sql fla psd ini log sh inc swp dist'.split(' ').forEach(function(f) {
+			['bak', 'config', 'sql', 'fla', 'psd', 'ini', 'log', 'sh', 'inc', 'swp', 'dist'].forEach(function(f) {
 				it('should be blocked for .' + f, function(done) {
 					helper.request()
 						.get('/.' + f)
