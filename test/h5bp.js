@@ -355,6 +355,38 @@ describe('h5bp', function() {
 						.expect(403, done);
 				});
 			});
+
+			it('should be blocked on express when initiated without option dotfiles', function(done) {
+				var app = express();
+				app.use(h5bp());
+				app.get('/.file', function(req, res) {
+					res.end('ok');
+				});
+				var server = app.listen(8084);
+				request(server)
+					.get('/.file')
+					.expect(403, function() {
+						server.close();
+						done();
+					});
+			});
+
+			it('should not be blocked on express when initiated with option dotfiles', function(done) {
+				var app = express();
+				app.use(h5bp({
+					dotfiles: true
+				}));
+				app.get('/.file', function(req, res) {
+					res.end('ok');
+				});
+				var server = app.listen(8084);
+					request(server)
+					.get('/.file')
+					.expect(200, function() {
+						server.close();
+						done();
+					});
+			});
 		});
 
 		describe('access to backup and source files', function() {
