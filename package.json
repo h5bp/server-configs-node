@@ -3,9 +3,11 @@
   "description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
   "version": "0.1.3",
   "license": "MIT",
-  "author": "Sean Caetano Martin <seancaetanomartin@gmail.com>",
-  "contributors": [
+  "author": [
     "Nicolas Gryman <ngryman@gmail.com>",
+    "Sean Caetano Martin <seancaetanomartin@gmail.com>"
+  ],
+  "contributors": [
     "Nick Baugh <niftylettuce@gmail.com>",
     "Benjamin Tan <demoneaux@gmail.com>"
   ],
@@ -24,10 +26,7 @@
     "goodness"
   ],
   "homepage": "https://github.com/h5bp/server-configs-node",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/h5bp/server-configs-node.git"
-  },
+  "repository": "h5bp/server-configs-node",
   "bugs": {
     "url": "https://github.com/h5bp/server-configs-node/issues"
   },
@@ -41,21 +40,22 @@
     "LICENSE.md"
   ],
   "dependencies": {
-    "async": "~0.9.0",
-    "clean-css": "~2.2.8",
-    "express": "~3.5.1",
-    "less": "~1.7.3",
-    "node-sass": "~0.9.3",
-    "requirejs": "~2.1.14",
-    "stylus": "~0.47.2",
-    "uglify-js": "~2.4.15",
-    "webmake": "~0.3.35"
+    "async": "^1.1.0",
+    "clean-css": "^3.3.0",
+    "compression": "^1.4.4",
+    "express": "^4.12.4",
+    "less": "^2.5.1",
+    "node-sass": "^3.1.2",
+    "requirejs": "^2.1.18",
+    "stylus": "^0.51.1",
+    "uglify-js": "^2.4.23",
+    "webmake": "^0.3.39"
   },
   "devDependencies": {
-    "chai": "~1.9.1",
-    "connect": "~2.14.4",
-    "jshint": "~2.5.2",
-    "mocha": "~1.20.1",
-    "supertest": "~0.13.0"
+    "chai": "^2.3.0",
+    "connect": "^3.3.5",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
   }
 }
