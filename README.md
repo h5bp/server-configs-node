@@ -104,6 +104,10 @@ Forces **www** if `true`, forces **non-www** if `false`, does nothing if not def
 
 Enables **CORS** for everything. By default this is disabled.
 
+### dotfiles
+
+Enables access to dotfiles. By default this is disabled.
+
 ### scripts
 
 Tells which scripts to concatenate.
