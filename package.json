@@ -1,7 +1,7 @@
 {
   "name": "h5bp",
   "description": "HTML5 boilerplate (H5BP) inspired server config for node.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "author": [
     "Nicolas Gryman <ngryman@gmail.com>",
