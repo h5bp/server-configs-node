@@ -1,12 +1,6 @@
-# [H5BP](http://h5bp.github.com)
+# [h5bp](http://h5bp.github.com) [![Build Status](https://secure.travis-ci.org/h5bp/server-configs-node.svg)](http://travis-ci.org/h5bp/server-configs-node)
 
 **HTML5 boilerplate** (H5BP) server config for node.js.
-
-[![NPM](https://nodei.co/npm/h5bp.png)](https://nodei.co/npm/h5bp/)
-
-[![Build Status](https://secure.travis-ci.org/h5bp/server-configs-node.svg)](http://travis-ci.org/h5bp/server-configs-node)
-[![Dependency Status](https://david-dm.org/h5bp/server-configs-node.svg?theme=shields.io)](https://david-dm.org/h5bp/server-configs-node)
-[![devDependency Status](https://david-dm.org/h5bp/server-configs-node/dev-status.svg?theme=shields.io)](https://david-dm.org/h5bp/server-configs-node#info=devDependencies)
 
 `h5bp` for node.js follows the guidelines of the [Apache] version:
  - secures backup and hidden files.
