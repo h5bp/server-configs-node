@@ -1,5 +1,11 @@
 # [h5bp](http://h5bp.github.com) [![Build Status](https://secure.travis-ci.org/h5bp/server-configs-node.svg)](http://travis-ci.org/h5bp/server-configs-node)
 
+---
+
+**:warning: This module is depecrated (Express 3.x) and is being [rewritten](https://github.com/h5bp/server-configs-node/issues/57).**
+
+---
+
 **HTML5 boilerplate** (H5BP) server config for node.js.
 
 `h5bp` for node.js follows the guidelines of the [Apache] version:
